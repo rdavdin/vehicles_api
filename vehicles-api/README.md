@@ -46,7 +46,7 @@ Swagger UI: http://localhost:8080/swagger-ui.html
 `POST` `/cars`
 ```json
 {
-   "condition":"USED",
+   "cond":"USED",
    "details":{
       "body":"sedan",
       "model":"Impala",

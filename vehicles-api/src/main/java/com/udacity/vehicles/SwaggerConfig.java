@@ -27,7 +27,7 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Vehicle REST API",
-                "CLICK FOLLOWING LINK to get an example of POST body creating a car: \n <h2><a href=\"https://github.com/udacity/JDND/tree/master/projects/P02-VehiclesAPI/vehicles-api#create-a-vehicle\" target=\"_blank\">Post BODY example here</a><h2>",
+                "CLICK FOLLOWING LINK to get an example of POST body creating a car: \n <h2><a href=\"https://github.com/rdavdin/vehicles_api/tree/main/vehicles-api#create-a-vehicle\" target=\"_blank\">Post BODY example here</a><h2>",
                 "1.0",
                 "",
                 new Contact("", "", ""),

@@ -2,14 +2,20 @@ package com.udacity.vehicles;
 
 import com.udacity.vehicles.domain.manufacturer.Manufacturer;
 import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
+import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvEntry;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import javax.sql.DataSource;
 
 /**
  * Launches a Spring Boot application for the Vehicles API,
@@ -18,10 +24,27 @@ import org.springframework.web.reactive.function.client.WebClient;
  */
 @SpringBootApplication
 @EnableJpaAuditing
+//@EnableAutoConfiguration
 public class VehiclesApiApplication {
 
     public static void main(String[] args) {
+//        Dotenv dotenv = Dotenv.configure().load();
+//        for (DotenvEntry e : dotenv.entries()) {
+//            System.out.println(e);
+//        }
+
         SpringApplication.run(VehiclesApiApplication.class, args);
+    }
+
+    @Bean
+    public DataSource getDatasource() {
+        Dotenv dotenv = Dotenv.configure().load();
+        DataSourceBuilder dsb = DataSourceBuilder.create();
+        dsb.username(dotenv.get("JDBC_DATABASE_USERNAME"));
+        dsb.password(dotenv.get("JDBC_DATABASE_PASSWORD"));
+        dsb.url(dotenv.get("JDBC_DATABASE_URL"));
+        dsb.driverClassName(dotenv.get("JDBC_DATABASE_DRIVER"));
+        return dsb.build();
     }
 
     /**
