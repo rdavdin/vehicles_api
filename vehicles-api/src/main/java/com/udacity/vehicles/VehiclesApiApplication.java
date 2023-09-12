@@ -44,6 +44,11 @@ public class VehiclesApiApplication {
         dsb.password(dotenv.get("JDBC_DATABASE_PASSWORD"));
         dsb.url(dotenv.get("JDBC_DATABASE_URL"));
         dsb.driverClassName(dotenv.get("JDBC_DATABASE_DRIVER"));
+//        DataSourceBuilder dsb = DataSourceBuilder.create();
+//        dsb.username("sa");
+//        dsb.password("Rob0t!@#$%!");
+//        dsb.url("jdbc:mysql://159.65.133.69:3306/vehiclesapi?serverTimezone=UTC");
+//        dsb.driverClassName("com.mysql.jdbc.Driver");
         return dsb.build();
     }
 
