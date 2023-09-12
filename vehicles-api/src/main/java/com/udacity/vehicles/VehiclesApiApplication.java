@@ -36,21 +36,17 @@ public class VehiclesApiApplication {
         SpringApplication.run(VehiclesApiApplication.class, args);
     }
 
-    @Bean
-    public DataSource getDatasource() {
-        Dotenv dotenv = Dotenv.configure().load();
-        DataSourceBuilder dsb = DataSourceBuilder.create();
-        dsb.username(dotenv.get("JDBC_DATABASE_USERNAME"));
-        dsb.password(dotenv.get("JDBC_DATABASE_PASSWORD"));
-        dsb.url(dotenv.get("JDBC_DATABASE_URL"));
-        dsb.driverClassName(dotenv.get("JDBC_DATABASE_DRIVER"));
+//    @Bean
+//    public DataSource getDatasource() {
+//        Dotenv dotenv = Dotenv.configure().load();
 //        DataSourceBuilder dsb = DataSourceBuilder.create();
-//        dsb.username("sa");
-//        dsb.password("Rob0t!@#$%!");
-//        dsb.url("jdbc:mysql://159.65.133.69:3306/vehiclesapi?serverTimezone=UTC");
-//        dsb.driverClassName("com.mysql.jdbc.Driver");
-        return dsb.build();
-    }
+//        dsb.username(dotenv.get("JDBC_DATABASE_USERNAME"));
+//        dsb.password(dotenv.get("JDBC_DATABASE_PASSWORD"));
+//        dsb.url(dotenv.get("JDBC_DATABASE_URL"));
+//        dsb.driverClassName(dotenv.get("JDBC_DATABASE_DRIVER"));
+//
+//        return dsb.build();
+//    }
 
     /**
      * Initializes the car manufacturers available to the Vehicle API.
